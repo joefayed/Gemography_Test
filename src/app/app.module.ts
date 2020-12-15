@@ -25,8 +25,8 @@ import { TrendingReposComponent } from './trending-repos/trending-repos.componen
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatListModule,
     FlexLayoutModule,
-    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

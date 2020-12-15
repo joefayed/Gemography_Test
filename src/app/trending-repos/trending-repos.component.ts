@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Repo } from '../shared/repo';
+import { REPOS } from '../shared/repos';
+
 
 @Component({
   selector: 'app-trending-repos',
@@ -7,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrendingReposComponent implements OnInit {
 
+   repos: Repo[] = REPOS;
   constructor() {}
 
   ngOnInit(): void {

@@ -1,17 +1,17 @@
 <div class="container">
     <mat-list>
-        <div>
-            <mat-list-item>
-                <mat-icon mat-list-icon>lorem3</mat-icon>
-                <div mat-line> <h2>Tensorflow</h2></div>
-                <div mat-line><p>Lorem ipsum dolor sit amet.</p></div>
-                <div mat-line> 
-                    <a class="bordered">3 Stars</a>
-                    <a class="bordered">1 Issues</a>
-                    Lorem ipsum dolor sit amet.
+        <div class="flex-container" fxLayout="column" fxLayoutGap="5px">
+            <mat-list-item fxFlex fxFlexFill *ngFor="let repo of repos">
+                <img matListAvatar src={{repo.avatar}} alt={{repo.username}}>
+                <div mat-line> <h2>{{ repo.name }}</h2></div>
+                <div mat-line><p>{{ repo.description }}</p></div>
+                <div class="flex-container" fxLayout="row" fxLayout.xs="column wrap" mat-line > 
+                    <div class="bordered"> <a>{{ repo.stars }} Stars</a> </div>
+                    <div class="bordered"><a>{{ repo.issues }} Issues</a> </div>
+                    <a>Submitted 30 days ago by {{ repo.username }} </a>
                 </div>
+                <mat-divider></mat-divider>
             </mat-list-item>
-            <mat-divider></mat-divider>
         </div>
     </mat-list>
 </div>
