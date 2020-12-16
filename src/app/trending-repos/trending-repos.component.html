@@ -2,16 +2,20 @@
     <mat-list>
         <div class="flex-container" fxLayout="column" fxLayoutGap="5px">
             <mat-list-item fxFlex fxFlexFill *ngFor="let repo of repos">
-                <img matListAvatar src={{repo.avatar}} alt={{repo.username}}>
-                <div mat-line> <h2>{{ repo.name }}</h2></div>
-                <div mat-line><p>{{ repo.description }}</p></div>
+                <!--<img matListAvatar src={{repo.avatar}} alt={{repo.owner.login}}>-->
+                <div mat-line> <h2>{{ repo.items.name }}</h2></div>
+                <div mat-line><p>{{ repo.items.description }}</p></div>
                 <div class="flex-container" fxLayout="row" fxLayout.xs="column wrap" mat-line > 
-                    <div class="bordered"> <a>{{ repo.stars }} Stars</a> </div>
-                    <div class="bordered"><a>{{ repo.issues }} Issues</a> </div>
-                    <a>Submitted 30 days ago by {{ repo.username }} </a>
+                    <div class="bordered"> <a>{{ repo.items.stargazers_count }} Stars</a> </div>
+                    <div class="bordered"><a>{{ repo.items.open_issues_count }} Issues</a> </div>
+                    <a>Submitted 30 days ago by {{ repo.items.owner.login }} </a>
                 </div>
                 <mat-divider></mat-divider>
             </mat-list-item>
+            <div fxFlex *ngIf="errMess">
+                <h2>Error</h2>
+                <h4>{{ errMess }}</h4>
+            </div>
         </div>
     </mat-list>
 </div>

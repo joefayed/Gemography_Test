@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Repo } from '../shared/repo';
-import { REPOS } from '../shared/repos';
-
-
+import { ReporequestService } from "../services/reporequest.service";
+import { Total } from "../shared/total";
 @Component({
   selector: 'app-trending-repos',
   templateUrl: './trending-repos.component.html',
@@ -10,10 +9,14 @@ import { REPOS } from '../shared/repos';
 })
 export class TrendingReposComponent implements OnInit {
 
-   repos: Repo[] = REPOS;
-  constructor() {}
-
+  constructor(private repoService: ReporequestService,
+    @Inject('BaseURL') public BaseURL) {}
+  
+  repos: Total[];
+  errMess: string;
   ngOnInit(): void {
+    this.repoService.getRepos().subscribe((repos) => (this.repos = repos), errmess => this.errMess = <any>errmess);
+    console.log(this.repos);
   }
 
 }

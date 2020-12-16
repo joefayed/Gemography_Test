@@ -1,5 +1,4 @@
-import { from } from 'rxjs';
-import { Repo } from './repo';
+/*import { Repo } from './repo';
 
 
 export const REPOS: Repo[] = [
@@ -195,4 +194,4 @@ export const REPOS: Repo[] = [
         stars: 3,
         issues: 1
     },
-];
+];*/
